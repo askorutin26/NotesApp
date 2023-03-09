@@ -6,3 +6,5 @@ start-locally:
 	make start-frontend & make start-backend
 start:
 	npm run start
+install:
+	npm ci
