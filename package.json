@@ -1,0 +1,27 @@
+{
+  "name": "it-hub-assignment",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd backend && npm run start\" \"cd app && npm run start\" ",
+    "postinstall": "(cd backend && npm ci) && (cd app && npm ci)",
+    "build": "cd app && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/askorutin26/it-hub-assignment.git"
+  },
+  "author": "askor26",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/askorutin26/it-hub-assignment/issues"
+  },
+  "homepage": "https://github.com/askorutin26/it-hub-assignment#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "dotenv": "^16.0.3"
+  }
+}
