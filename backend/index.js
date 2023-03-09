@@ -19,6 +19,13 @@ app.use(Express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const imgPath = path.join(__dirname, "images");
+const buildPath = path.join(__dirname, "../", "app", "build");
+
+app.use(Express.static(buildPath));
+
+app.get("/", function (req, res) {
+  res.sendFile(path.join(buildPath, "index.html"));
+});
 
 app.use("/images", Express.static(imgPath));
 
