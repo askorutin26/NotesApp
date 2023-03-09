@@ -5,3 +5,5 @@ Notes can be changed, deleted or you may add some images to it.
 `$make install`
 
 `$make start`
+
+`open http://localhost:3001/`
