@@ -7,8 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd backend && npm run start",
-    "postinstall": "(cd backend && npm ci) && (cd app && npm ci)",
-    "build": "cd app && npm run build"
+    "postinstall": "(cd backend && npm ci) && (cd app && npm ci) && (cd app && npm run build)"
   },
   "repository": {
     "type": "git",

@@ -23,10 +23,6 @@ const buildPath = path.join(__dirname, "../", "app", "build");
 
 app.use(Express.static(buildPath));
 
-app.get("/", function (req, res) {
-  res.sendFile(path.join(buildPath, "index.html"));
-});
-
 app.use("/images", Express.static(imgPath));
 
 app.get("/notes", notesMethods.getNotes);
@@ -47,6 +43,10 @@ app.post(
   imagesMethods.getUpload().array("files"),
   imagesMethods.saveImages
 );
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(buildPath, "index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Server started on port: ${PORT}`);
