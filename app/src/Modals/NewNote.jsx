@@ -30,6 +30,8 @@ export default function NewNote() {
   const { modals } = AppContext;
   const show = modals.add;
 
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+
   const handleClose = () => dispatch(setShow({ add: false }));
   const dispatch = useDispatch();
 
@@ -39,6 +41,7 @@ export default function NewNote() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setButtonDisabled(true);
     const data = {
       title,
       userID,
@@ -70,11 +73,13 @@ export default function NewNote() {
           batch(() => {
             dispatch(addImages(savedImages));
           });
+          setButtonDisabled(false);
           handleClose();
         });
       })
       .catch((err) => {
         console.log(err);
+        setButtonDisabled(false);
       });
   };
   return (
@@ -114,7 +119,7 @@ export default function NewNote() {
             >
               {t("Modals.cancel")}
             </Button>
-            <Button type="submit" variant="primary">
+            <Button type="submit" variant="primary" disabled={buttonDisabled}>
               {t("Modals.save")}
             </Button>
           </Modal.Footer>

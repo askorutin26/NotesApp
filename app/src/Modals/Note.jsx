@@ -35,13 +35,14 @@ export default function Note() {
   const { id, title } = noteToShow;
 
   const [oldTitle, setTitle] = useState(title);
-
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   return (
     <>
       <Modal show={show}>
         <Form
           onSubmit={(e) => {
             e.preventDefault();
+            setButtonDisabled(true);
             const data = {
               id: noteID,
               title: oldTitle,
@@ -49,6 +50,7 @@ export default function Note() {
             axios.put(server.postNote(), data).then((response) => {
               const { title: newTitle } = response.data;
               dispatch(changeNote({ id, changes: { title: newTitle } }));
+              setButtonDisabled(false);
               handleClose();
             });
           }}
@@ -107,7 +109,12 @@ export default function Note() {
             >
               Отменить
             </Button>
-            <Button variant="primary" id={id} type="submit">
+            <Button
+              variant="primary"
+              id={id}
+              type="submit"
+              disavled={buttonDisabled}
+            >
               Сохранить
             </Button>
           </Modal.Footer>
