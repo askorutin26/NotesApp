@@ -15,6 +15,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(Express.json());
+app.use(Express.urlencoded({ extended: false }));
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
