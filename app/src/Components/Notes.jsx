@@ -32,7 +32,7 @@ export default function Notes() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [dispatch, userID]);
   return (
     <Container>
       <div className="my-4 row justify-content-md-center">
