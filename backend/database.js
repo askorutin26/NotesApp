@@ -4,7 +4,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 const { Pool } = pg.default;
 
-const connectionString = process.env.DB_STRING;
+const connectionString =
+  "postgresql://postgres:5xvbBZ7tDoemW7Kn9xUF@containers-us-west-104.railway.app:7985/railway";
 
 const pool = new Pool({
   connectionString,
