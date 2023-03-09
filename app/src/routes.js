@@ -1,5 +1,5 @@
-const { protocol, hostname } = window.location;
-const base = `${protocol}//${hostname}:3001/`;
+const { origin } = window.location;
+const base = origin;
 const routes = {
   app: { home: () => "/", login: () => "/login", signUp: () => "/signup" },
   server: {
