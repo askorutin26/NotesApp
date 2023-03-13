@@ -7,9 +7,11 @@ import NewNote from "../Modals/NewNote.jsx";
 import NotesList from "./NotesList.jsx";
 import Note from "../Modals/Note.jsx";
 import SubmitDelete from "../Modals/Delete.jsx";
+
 import { useAuthContext, useAppContext } from "../Hooks/index.js";
 import { addNotes } from "../store/notes.js";
 import { addImages } from "../store/images.js";
+
 import routes from "../routes.js";
 import axios from "axios";
 const { server } = routes;

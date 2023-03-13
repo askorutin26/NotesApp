@@ -18,7 +18,7 @@ const Navigation = () => {
   return (
     <Navbar bg="white" className="shadow-sm" expand="lg">
       <Container>
-        <Navbar.Brand href={app.home()}>Notes</Navbar.Brand>
+        <Navbar.Brand href={app.home()}>{t("title")}</Navbar.Brand>
         {logged ? (
           <Button
             as={Link}

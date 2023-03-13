@@ -14,6 +14,7 @@ import { useAuthContext } from "../Hooks/index.js";
 import routes from "../routes.js";
 
 const { app, server } = routes;
+
 export default function Signup() {
   const AuthContext = useAuthContext();
 

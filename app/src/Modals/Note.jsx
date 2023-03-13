@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-
+import { useTranslation } from "react-i18next";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
@@ -20,6 +20,8 @@ const { server } = routes;
 
 export default function Note() {
   const AppContext = useAppContext();
+
+  const { t } = useTranslation();
 
   const dispatch = useDispatch();
   const handleClose = () => dispatch(setShow({ show: false }));
@@ -107,15 +109,15 @@ export default function Note() {
                 handleClose();
               }}
             >
-              Отменить
+              {t("Modals.cancel")}
             </Button>
             <Button
               variant="primary"
               id={id}
               type="submit"
-              disavled={buttonDisabled}
+              disabled={buttonDisabled}
             >
-              Сохранить
+              {t("Modals.save")}
             </Button>
           </Modal.Footer>
         </Form>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,6 +10,7 @@ import uniqueId from "lodash.uniqueid";
 export default function ImageUploader({ props }) {
   const { images, setImages } = props;
   const [imageUrls, setImageUrls] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (images.length < 1) return;
@@ -18,7 +20,7 @@ export default function ImageUploader({ props }) {
   }, [images]);
   return (
     <Form.Group className="mb-3" controlid="task">
-      <Form.Label>Прикрепить изображения</Form.Label>
+      <Form.Label>{t("Images.attachImage")}</Form.Label>
 
       <Form.Control
         type="file"

@@ -20,8 +20,5 @@
     "url": "https://github.com/askorutin26/it-hub-assignment/issues"
   },
   "homepage": "https://github.com/askorutin26/it-hub-assignment#readme",
-  "dependencies": {
-    "concurrently": "^7.6.0",
-    "dotenv": "^16.0.3"
-  }
+  "dependencies": {}
 }

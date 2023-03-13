@@ -1,14 +1,15 @@
-import axios from "axios";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
+
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-import { useDispatch } from "react-redux";
 import { useAppContext, useAuthContext } from "../Hooks/index.js";
 
 import { setShow } from "../store/modals.js";
 import { deleteNote } from "../store/notes.js";
-
+import axios from "axios";
 import routes from "../routes.js";
 
 const { server } = routes;
@@ -16,6 +17,8 @@ const { server } = routes;
 export default function SubmitDelete() {
   const AppContext = useAppContext();
   const AuthContext = useAuthContext();
+
+  const { t } = useTranslation();
 
   const dispatch = useDispatch();
   const handleClose = () => dispatch(setShow({ delete: false }));
@@ -29,12 +32,12 @@ export default function SubmitDelete() {
     <>
       <Modal show={show}>
         <Modal.Header>
-          <Modal.Title>{"Удалить задачу?"}</Modal.Title>
+          <Modal.Title>{t("Modals.deleteNote")}</Modal.Title>
         </Modal.Header>
 
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Отменить
+            {t("Modals.cancel")}
           </Button>
           <Button
             variant="primary"
@@ -48,7 +51,7 @@ export default function SubmitDelete() {
                 });
             }}
           >
-            Удалить
+            {t("Modals.delete")}
           </Button>
         </Modal.Footer>
       </Modal>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, batch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/esm/ListGroupItem.js";
@@ -14,6 +15,7 @@ import { setShow, setID } from "../store/modals.js";
 export default function NotesList() {
   const AppContext = useAppContext();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const { notes } = AppContext;
 
@@ -79,7 +81,7 @@ export default function NotesList() {
                 });
               }}
             >
-              Изменить
+              {t("Notes.change")}
             </Dropdown.Item>
             <Dropdown.Item
               className="text-danger"
@@ -95,7 +97,7 @@ export default function NotesList() {
                 });
               }}
             >
-              Удалить
+              {t("Notes.delete")}
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>

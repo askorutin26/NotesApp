@@ -20,10 +20,14 @@ const ru = {
     Modals: {
       addNew: "Добавить новую запись",
       add: "Добавить запись",
+      deleteNote: "Удалить запись?",
       delete: "Удалить",
       edit: "Редактировать",
       save: "Сохранить",
       cancel: "Отменить",
+    },
+    Images: {
+      attachImage: "Прикрепить изображения",
     },
     Notes: {
       delete: "Удалить",
